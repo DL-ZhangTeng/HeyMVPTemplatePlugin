@@ -1,0 +1,88 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.github.dlzhangteng.heymvptemplateplugin</id>
+    <name>HeyMvp</name>
+    <vendor email="763263311@qq.com">dl-zhangteng</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements ( text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description>
+        <![CDATA[
+        <!doctype html>
+        <html>
+        <head>
+            <meta charset='UTF-8'>
+            <meta name='viewport' content='width=device-width initial-scale=1'>
+            <title>README_EN</title></head>
+        <body>
+        <p><a href='https://github.com/DL-ZhangTeng/HeyMvpTemplatePlugin'>Github</a> | <a
+                href='https://github.com/DL-ZhangTeng/HeyMvpTemplatePlugin'>Manual</a> | <a
+                href='https://github.com/DL-ZhangTeng/HeyMvpTemplatePlugin/issues'>Issues</a></p>
+        <p>HeyMvp This is a plugin you can generate Base Class.
+            <strong>This Plugin is only for IntelliJ IDEA And Android Studio</strong>.
+            which is base on HeyMvp and more flexible and convenient. Welcome to issue
+            and PR.</p>
+        <h2>Install</h2>
+        <ul>
+            <li><p>Using IDE built-in plugin system on Windows:</p>
+                <ul>
+                    <li><kbd>File</kbd> &gt; <kbd>Settings</kbd> &gt; <kbd>Plugins</kbd> &gt; <kbd>Browse
+                        repositories...</kbd> &gt; <kbd>Search for
+                        &quot;HeyMvp&quot;</kbd> &gt; <kbd>Install Plugin</kbd></li>
+                </ul>
+            </li>
+            <li><p>Using IDE built-in plugin system on MacOs:</p>
+                <ul>
+                    <li><kbd>Preferences</kbd> &gt; <kbd>Settings</kbd> &gt; <kbd>Plugins</kbd> &gt; <kbd>Browse
+                        repositories...</kbd> &gt; <kbd>Search for
+                        &quot;HeyMvp&quot;</kbd> &gt; <kbd>Install Plugin</kbd></li>
+                </ul>
+            </li>
+            <li><p>Manually:</p>
+                <ul>
+                    <li>Download the <a
+                            href='https://github.com/DL-ZhangTeng/HeyMvpTemplatePlugin/releases'>latest
+                        release</a> and install it manually using <kbd>Preferences</kbd> &gt;
+                        <kbd>Plugins</kbd> &gt; <kbd>Install plugin from disk...</kbd></li>
+                </ul>
+            </li>
+        </ul>
+        <p>Restart IDE.</p>
+        </body>
+        </html>
+        ]]>
+    </description>
+
+    <!-- Short summary of new features and bugfixes in the latest plugin version.
+         Displayed on the Plugin Page and IDE Plugin Manager. Simple HTML elements can be included between <![CDATA[  ]]> tags. -->
+    <change-notes>
+        <![CDATA[
+        <p>1.0.0</p>
+        <ul>
+          <li>HeyMvp模板代码</li>
+        </ul>
+        ]]>
+    </change-notes>
+
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+            serviceImplementation="com.github.dlzhangteng.heymvptemplateplugin.services.MyApplicationService" />
+        <projectService
+            serviceImplementation="com.github.dlzhangteng.heymvptemplateplugin.services.MyProjectService" />
+    </extensions>
+
+    <applicationListeners>
+        <listener
+            class="com.github.dlzhangteng.heymvptemplateplugin.listeners.MyProjectManagerListener"
+            topic="com.intellij.openapi.project.ProjectManagerListener" />
+    </applicationListeners>
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider
+            implementation="com.github.dlzhangteng.heymvptemplateplugin.template.SamplePluginTemplateProviderImpl" />
+    </extensions>
+</idea-plugin>
