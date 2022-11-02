@@ -1,5 +1,7 @@
 package com.github.dlzhangteng.heymvptemplateplugin.template.activity
 
+import com.github.dlzhangteng.heymvptemplateplugin.template.getLayoutName
+
 fun baseActivity(
     mRootPackageName: String?,
     mActivityPackageName: String,

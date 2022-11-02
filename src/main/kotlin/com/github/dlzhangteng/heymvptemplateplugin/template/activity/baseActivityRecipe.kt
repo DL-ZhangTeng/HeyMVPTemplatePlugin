@@ -2,7 +2,7 @@ package com.github.dlzhangteng.heymvptemplateplugin.template.activity
 
 import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.android.tools.idea.wizard.template.impl.activities.common.generateManifest
+import com.github.dlzhangteng.heymvptemplateplugin.template.addActivityToManifest
 import com.github.dlzhangteng.heymvptemplateplugin.template.layout.baseXml
 
 fun RecipeExecutor.baseActivityRecipe(
@@ -12,14 +12,12 @@ fun RecipeExecutor.baseActivityRecipe(
     mIsGenerateActivityLayout: Boolean,
     mActivityPackageName: String,
 ) {
-//    generateManifest(
-//        moduleData = moduleTemplateData,
-//        activityClass = "${mPageName}Activity",
-//        packageName = mActivityPackageName,
-//        isLauncher = false,
-//        hasNoActionBar = false,
-//        generateActivityTitle = false
-//    )
+    addActivityToManifest(
+        this,
+        moduleTemplateData,
+        "${mPageName}Activity",
+        mActivityPackageName
+    )
 
     val packageNameStr =
         if (moduleTemplateData.projectTemplateData.applicationPackage == null) ""

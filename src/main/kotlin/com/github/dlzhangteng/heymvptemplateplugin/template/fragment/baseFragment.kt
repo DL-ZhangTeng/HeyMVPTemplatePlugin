@@ -1,5 +1,7 @@
 package com.github.dlzhangteng.heymvptemplateplugin.template.fragment
 
+import com.github.dlzhangteng.heymvptemplateplugin.template.getLayoutName
+
 fun baseFragment(
     mRootPackageName: String?,
     mActivityPackageName: String,
