@@ -35,19 +35,21 @@ fun splitByUpperCase(str: String): ArrayList<String> {
     return rs
 }
 
+/**
+ * description 添加activity到Manifest
+ * @param activityClass activity相对路径如：.activity.BaseActivity
+ */
 fun addActivityToManifest(
     recipeExecutor: RecipeExecutor,
     moduleTemplateData: ModuleTemplateData,
-    activityClass: String,
-    mActivityPackageName: String,
+    activityClass: String
 ) {
-    //新版无法准确添加，待实现
-//    recipeExecutor.generateManifest(
-//        moduleData = moduleTemplateData,
-//        activityClass = activityClass,
-//        packageName = mActivityPackageName,
-//        isLauncher = false,
-//        hasNoActionBar = false,
-//        generateActivityTitle = false
-//    )
+    recipeExecutor.generateManifest(
+        moduleData = moduleTemplateData,
+        activityClass = activityClass,
+        packageName = "",
+        isLauncher = false,
+        hasNoActionBar = false,
+        generateActivityTitle = false
+    )
 }
