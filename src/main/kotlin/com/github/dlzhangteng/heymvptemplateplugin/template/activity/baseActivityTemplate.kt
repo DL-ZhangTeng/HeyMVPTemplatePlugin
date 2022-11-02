@@ -6,8 +6,8 @@ import java.io.File
 
 val baseActivityTemplate
     get() = template {
-        name = "ZTHeyMvpActivity"
-        description = "一键创建 HeyMvpActivity "
+        name = "ZTHeyMVPActivity"
+        description = "一键创建 HeyMVPActivity "
         minApi = MIN_API
         category = Category.Activity
         formFactor = FormFactor.Mobile

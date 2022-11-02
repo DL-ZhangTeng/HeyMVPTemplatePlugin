@@ -1,1 +1,1 @@
-rootProject.name = "HeyMvpTemplatePlugin"
+rootProject.name = "HeyMVPTemplatePlugin"
