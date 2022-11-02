@@ -12,33 +12,42 @@ fun RecipeExecutor.baseActivityRecipe(
     mIsGenerateActivityLayout: Boolean,
     mActivityPackageName: String,
 ) {
-    generateManifest(
-        moduleData = moduleTemplateData,
-        activityClass = "${mPageName}Activity",
-        packageName = mActivityPackageName,
-        isLauncher = false,
-        hasNoActionBar = false,
-        generateActivityTitle = false
-    )
+//    generateManifest(
+//        moduleData = moduleTemplateData,
+//        activityClass = "${mPageName}Activity",
+//        packageName = mActivityPackageName,
+//        isLauncher = false,
+//        hasNoActionBar = false,
+//        generateActivityTitle = false
+//    )
+
     val packageNameStr =
         if (moduleTemplateData.projectTemplateData.applicationPackage == null) ""
         else mActivityPackageName
             .replace(moduleTemplateData.projectTemplateData.applicationPackage.toString(), "")
-            .replace(".", "")
     val rootPath =
-        if (!packageNameStr.isNullOrEmpty()) mActivityPackageName.replace(".$packageNameStr", "")
+        if (packageNameStr.isNotEmpty()) moduleTemplateData.projectTemplateData.applicationPackage.toString()
         else mActivityPackageName
     val baseActivity = baseActivity(
         rootPath,
         packageNameStr,
         mPageName
     )
-    // 保存Activity
-
     save(
         baseActivity,
         moduleTemplateData.srcDir.resolve("${mPageName}Activity.java")
     )
+
+    val basePresenter = basePresenter(
+        rootPath,
+        packageNameStr,
+        mPageName
+    )
+    save(
+        basePresenter,
+        moduleTemplateData.srcDir.resolve("${mPageName}Presenter.java")
+    )
+
     if (mIsGenerateActivityLayout) {
         // 保存xml
         save(baseXml(), moduleTemplateData.resDir.resolve("layout/${mActivityLayoutName}.xml"))

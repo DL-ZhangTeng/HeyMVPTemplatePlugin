@@ -5,12 +5,12 @@ fun baseFragment(
     mActivityPackageName: String,
     mPageName: String
 ) = """
-package ${mRootPackageName}${if (mActivityPackageName.isNullOrEmpty()) "" else ".${mActivityPackageName}"};
+package ${mRootPackageName}${mActivityPackageName.ifEmpty { "" }};
 
 import com.sskj.common.base.BaseFragment;
 
-import ${mRootPackageName}.R;
 import android.os.Bundle;
+import ${mRootPackageName}.R;
 
 public class ${mPageName}Fragment extends BaseFragment<${mPageName}Presenter> {
 

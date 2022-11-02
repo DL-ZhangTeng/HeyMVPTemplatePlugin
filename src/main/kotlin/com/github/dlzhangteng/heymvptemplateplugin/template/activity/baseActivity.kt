@@ -5,10 +5,10 @@ fun baseActivity(
     mActivityPackageName: String,
     mPageName: String
 ) = """
-package ${mRootPackageName}${if (mActivityPackageName.isNullOrEmpty()) "" else ".${mActivityPackageName}"};
+package ${mRootPackageName}${mActivityPackageName.ifEmpty { "" }};
 
 import com.sskj.common.base.BaseActivity;
-import ${mRootPackageName}.${mPageName}Presenter;
+
 import android.content.Context;
 import android.content.Intent;
 import ${mRootPackageName}.R;

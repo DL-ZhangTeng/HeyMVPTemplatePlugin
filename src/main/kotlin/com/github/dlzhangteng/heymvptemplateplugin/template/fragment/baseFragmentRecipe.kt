@@ -15,21 +15,30 @@ fun RecipeExecutor.baseFragmentRecipe(
         if (moduleTemplateData.projectTemplateData.applicationPackage == null) ""
         else mActivityPackageName
             .replace(moduleTemplateData.projectTemplateData.applicationPackage.toString(), "")
-            .replace(".", "")
     val rootPath =
-        if (!packageNameStr.isNullOrEmpty()) mActivityPackageName.replace(".$packageNameStr", "")
+        if (packageNameStr.isNotEmpty()) moduleTemplateData.projectTemplateData.applicationPackage.toString()
         else mActivityPackageName
+
     val baseFragment = baseFragment(
         rootPath,
         packageNameStr,
         mPageName
     )
-    // 保存Activity
-
     save(
         baseFragment,
         moduleTemplateData.srcDir.resolve("${mPageName}Fragment.java")
     )
+
+    val basePresenter = basePresenter(
+        rootPath,
+        packageNameStr,
+        mPageName
+    )
+    save(
+        basePresenter,
+        moduleTemplateData.srcDir.resolve("${mPageName}Presenter.java")
+    )
+
     if (mIsGenerateActivityLayout) {
         // 保存xml
         save(baseXml(), moduleTemplateData.resDir.resolve("layout/${mActivityLayoutName}.xml"))
