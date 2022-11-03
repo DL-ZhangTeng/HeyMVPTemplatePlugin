@@ -7,8 +7,8 @@ import java.io.File
 
 val baseFragmentTemplate
     get() = template {
-        name = "ZTBaseFragment"
-        description = "一键创建 BaseFragment "
+        name = "ZTHeyMVPFragment"
+        description = "一键创建 HeyMVPFragment "
         minApi = MIN_API
         category = Category.Fragment
         formFactor = FormFactor.Mobile

@@ -13,7 +13,7 @@ fun getLayoutName(pageName: String): String {
         pageName
     )
     activityChildNames.forEach {
-        stringBuilder.append("_").append(it.toLowerCase())
+        stringBuilder.append("_").append(it.lowercase())
     }
     return stringBuilder.toString()
 }
