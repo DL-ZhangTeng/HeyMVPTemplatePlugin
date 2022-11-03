@@ -1,11 +1,10 @@
 package com.github.dlzhangteng.heymvptemplateplugin.template.activity
 
-import com.github.dlzhangteng.heymvptemplateplugin.template.getLayoutName
-
 fun baseActivity(
     mRootPackageName: String?,
     mActivityPackageName: String,
-    mPageName: String
+    mPageName: String,
+    mActivityLayoutName: String,
 ) = """
 package ${mRootPackageName}${mActivityPackageName.ifEmpty { "" }};
 
@@ -19,7 +18,7 @@ public class ${mPageName}Activity extends BaseActivity<${mPageName}Presenter> {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity${getLayoutName(mPageName)};
+        return R.layout.${mActivityLayoutName};
     }
 
     @Override

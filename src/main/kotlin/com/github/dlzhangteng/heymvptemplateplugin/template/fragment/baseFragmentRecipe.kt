@@ -7,7 +7,7 @@ import com.github.dlzhangteng.heymvptemplateplugin.template.layout.baseXml
 fun RecipeExecutor.baseFragmentRecipe(
     moduleTemplateData: ModuleTemplateData,
     mPageName: String,
-    mActivityLayoutName: String,
+    mFragmentLayoutName: String,
     mIsGenerateActivityLayout: Boolean,
     mActivityPackageName: String,
 ) {
@@ -22,7 +22,8 @@ fun RecipeExecutor.baseFragmentRecipe(
     val baseFragment = baseFragment(
         rootPath,
         packageNameStr,
-        mPageName
+        mPageName,
+        mFragmentLayoutName
     )
     save(
         baseFragment,
@@ -41,6 +42,6 @@ fun RecipeExecutor.baseFragmentRecipe(
 
     if (mIsGenerateActivityLayout) {
         // 保存xml
-        save(baseXml(), moduleTemplateData.resDir.resolve("layout/${mActivityLayoutName}.xml"))
+        save(baseXml(), moduleTemplateData.resDir.resolve("layout/${mFragmentLayoutName}.xml"))
     }
 }

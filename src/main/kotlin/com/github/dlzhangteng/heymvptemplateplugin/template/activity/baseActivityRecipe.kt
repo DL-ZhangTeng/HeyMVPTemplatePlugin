@@ -22,7 +22,8 @@ fun RecipeExecutor.baseActivityRecipe(
     val baseActivity = baseActivity(
         rootPath,
         packageNameStr,
-        mPageName
+        mPageName,
+        mActivityLayoutName
     )
     save(
         baseActivity,

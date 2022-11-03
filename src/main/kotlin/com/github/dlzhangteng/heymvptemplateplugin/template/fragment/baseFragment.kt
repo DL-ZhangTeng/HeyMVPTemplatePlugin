@@ -1,11 +1,10 @@
 package com.github.dlzhangteng.heymvptemplateplugin.template.fragment
 
-import com.github.dlzhangteng.heymvptemplateplugin.template.getLayoutName
-
 fun baseFragment(
     mRootPackageName: String?,
     mActivityPackageName: String,
-    mPageName: String
+    mPageName: String,
+    mFragmentLayoutName: String,
 ) = """
 package ${mRootPackageName}${mActivityPackageName.ifEmpty { "" }};
 
@@ -18,7 +17,7 @@ public class ${mPageName}Fragment extends BaseFragment<${mPageName}Presenter> {
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment${getLayoutName(mPageName)};
+        return R.layout.${mFragmentLayoutName};
     }
 
     @Override
